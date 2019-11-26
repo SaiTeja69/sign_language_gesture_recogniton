@@ -55,6 +55,7 @@ model.compile(
     loss='categorical_crossentropy',
     metrics=['accuracy']
 )
-
-model.fit(np.array(data), np.array(labels), epochs=10)
+X=np.array(data)
+Y=np.array(labels)
+model.fit(X, Y, validation_split=0.33, epochs=15, batch_size=10)
 model.save("gesturecheck.h5")
