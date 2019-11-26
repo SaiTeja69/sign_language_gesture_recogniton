@@ -51,7 +51,7 @@ labels = list(map(mapper, labels))
 labels = np_utils.to_categorical(labels) #encoding now
 model = get_model()
 model.compile(
-    optimizer=Adam(lr=0.0001),
+    optimizer=Adam(lr=1e-3),
     loss='categorical_crossentropy',
     metrics=['accuracy']
 )
