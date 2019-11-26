@@ -16,9 +16,6 @@ def mapper(val):
 model = load_model("gesturecheck.h5")
 
 cap = cv2.VideoCapture(0)
-
-prev_move = None
-
 while True:
     ret, frame = cap.read()
     if not ret:
