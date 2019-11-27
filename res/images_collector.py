@@ -38,7 +38,8 @@ while True:
     cv2.rectangle(frame, (100, 100), (500, 500), (255, 255, 255), 2)
 
     if start:
-        roi = frame[100:500, 100:500]
+        edges = cv2.Canny(frame,100,200)
+        roi = edges[100:500, 100:500]
         save_path = os.path.join(IMG_CLASS_PATH, '{}.jpg'.format(count + 1))
         cv2.imwrite(save_path, roi)
         count += 1

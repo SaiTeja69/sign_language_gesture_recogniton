@@ -22,7 +22,8 @@ while True:
         continue
 
     cv2.rectangle(frame, (100, 100), (500, 500), (255, 255, 255), 2)
-    roi = frame[100:500, 100:500]
+    edges = cv2.Canny(frame,100,200)
+    roi = edges[100:500, 100:500]
     img = cv2.cvtColor(roi, cv2.COLOR_BGR2RGB)
     img = cv2.resize(img, (227, 227))
     pred = model.predict(np.array([img]))
